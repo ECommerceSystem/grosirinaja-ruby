@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
       root to: "buyer_goods#index"
     end
-  # root :to => "application#index"
+  root :to => "application#index"
   
-  # get "sejarah" => "histories#index"
+  resource :session, controller: "sessions", only: %i[create]
+  get "/login", to: "sessions#new", as: "login"
+  get "/logout", to: "sessions#destroy"
 end

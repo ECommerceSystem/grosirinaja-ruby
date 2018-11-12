@@ -6,10 +6,18 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_admin
+    include Clearance::Controller
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      unless is_admin?
+        return redirect_to root_path, flash: { error: 'Anda tidak memiliki hak akses' }
+      end
+    end
+
+    def authenticate_seller
+      unless is_seller?
+        return redirect_to root_path, flash: { error: 'Anda tidak memiliki hak akses' }
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
@@ -17,5 +25,17 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+    private
+      def is_admin?
+        current_user.admin?
+      end
+
+      def is_seller?
+        current_user.seller?
+      end
+
+      def is_buyer?
+        current_user.buyer?
+      end
   end
 end

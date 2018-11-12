@@ -1,15 +1,148 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>GrosirinajaRuby</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+doctype html
+html
+  head
+    title Grosirin Aja
+    = csrf_meta_tags
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    meta charset="UTF-8" /
+    meta http-equiv="X-UA-Compatible" content="chrome=1" /
+    meta name="viewport" content="width=device-width, initial-scale=1.0" /
+    meta name="author" content="Kementrian Kesehatan Indonesia" /
+    meta name="description" content="Web Badan Pengembangan dan Pemberdayaan Sumber Daya Manusia Kesehatan" /
+    meta name="keywords" content="web kemenkes kementerian kesehatan RI indonesia" /
+    meta name="copyright" content="Kementerian Kesehatan Republik Indonesia" /
+    meta name="distribution" content="Global" /
+    meta name="rating" content="General" /
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+    /meta name="robots" content="index, follow" /
+    /meta name="google-site-verification" content="CpVhxvqnJR6-GIBm9ApJMlbPi19U43042P33pRrErSs" /
+    meta name="apple-mobile-web-app-capable" content="yes" /
+    meta content="yes" name="apple-touch-fullscreen" /
+    meta name="apple-mobile-web-app-status-bar-style" content="black" /
+
+    link rel="shortcut icon" href="logo-main.png" /
+
+    = stylesheet_link_tag "application", media: "all"
+
+    / = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    = javascript_pack_tag 'application', defer: true
+
+  body class=("#{controller_name} #{action_name}")
+    .container
+      .desktop
+        .row
+          header.header
+            .col-12.no-padding
+              .header__info
+                .col-1.no-padding
+                  .header__info__text
+                    | Berita Terkini
+                .col-8
+                  .header__info__newsticker
+                    .header__info__newsticker__item
+                      | Selamat datang di web Badan Pengembangan dan Pemberdayaan Sumber Daya Manusia Kesehatan.
+                    .header__info__newsticker__item
+                      | Hubungi kami di 021 724 55 17 atau 021 727 973 02.
+                    .header__info__newsticker__item
+                      | Fax kami di 021 726 30 83.
+                    .header__info__newsticker__item
+                      | Kunjungi kami di Jl. Hang Jebat III Blok F3, Kebayoran Baru, Jakarta Selatan 12120.
+                .col-3.no-padding
+                  .header__info__phone
+                    i.fas.fa-envelope.fa-fw
+                    a href='mailto:puslatsdmkesehatan@gmail.com' puslatsdmkesehatan@gmail.com
+                    i.fas.fa-fax.fa-fw
+                    a href='tel:0217263083' 0217263083
+
+        .row
+          .header__primary.shadow-outset
+            .d-flex.centered-items
+              .col-4
+                .d-flex.justify-content-start
+                  a href="/"
+                    = image_tag("logo-main.png")
+              .col-8
+                .d-flex.justify-content-center
+                  nav
+                    ul.header__primary__menu.d-flex
+                      a href="/"
+                        li Beranda
+                      li.header__primary__menu__parent
+                        | Profil
+                        ul.header__primary__menu__children.shadow-outset-sm
+                          a.color-black href="/visi"
+                            li Visi & Misi
+                          a.color-black href="/sejarah"
+                            li Sejarah
+                          a.color-black href="/struktur-organisasi"
+                            li Struktur Organisasi
+                      li.header__primary__menu__parent 
+                        | Produk
+                        ul.header__primary__menu__children.shadow-outset-sm
+                          a.color-black href="#{}"
+                            li Kurikulum
+                          a.color-black href="#{}"
+                            li Jadwal Kegiatan
+                      li.header__primary__menu__parent 
+                        | Informasi
+                        ul.header__primary__menu__children.shadow-outset-sm
+                          a.color-black href="#{}"
+                            li Pengumuman
+                          a.color-black href="#{}"
+                            li Informasi
+                          a.color-black href="#{}"
+                            li Berita
+                      a href="#{}" 
+                        li Forum
+                      a href="" 
+                        li Kontak Kami
+                      - if signed_in?
+                        a href="#{sign_out_path}" method='delete' rel='nofollow' data-method='delete'
+                          li Keluar
+                      - else
+                        li.header__primary__menu__parent
+                          | Akun
+                          ul.header__primary__menu__children.shadow-outset-sm
+                            = link_to sign_in_path do
+                              li Masuk
+                            / = link_to new_register_path do
+                            /   li Daftar 
+
+      - flash.each do |name, msg|
+        div class="flash flash__#{name}"
+          = msg
+
+      = yield
+
+      .desktop  
+        .row
+          footer.footer
+            .d-flex.centered-items
+              .col-6
+                a href="/"
+                  = image_tag("logo-main.png")
+              .col-6
+                .footer__title
+                  p Badan PPSDM Kesehatan RI
+                .footer__details
+                  p 
+                    b Alamat 
+                    | Jl. Hang Jebat III Blok F3, Kebayoran Baru, Jakarta Selatan 12120
+                  p Kotak Pos No. 6015/JKS/GN
+                  p
+                    b Telepon 
+                    | 021 724 55 17, 021 727 973 02
+                  p
+                    b Fax 
+                    | 021 726 30 83
+                .footer__wellcode
+                  a href="http://www.wellcode.io"
+                    p
+                      | Powered by 
+                      b Wellcode Global &copy;
+  
+    / = javascript_include_tag "all.js"
+    / - if %w(contacts homes).include? params[:controller]
+    /   = javascript_include_tag params[:controller]
+    / - if params[:controller] == "contacts"
+    /   = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJXf9eN7NOY_TvDIA4Tz0G-o5xoqr5VCc&callback=initMap"
