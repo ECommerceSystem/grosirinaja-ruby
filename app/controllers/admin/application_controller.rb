@@ -7,6 +7,13 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     include Clearance::Controller
+    before_action :require_login, :authenticate_admin_gate
+
+    def authenticate_admin_gate
+      unless is_admin? || is_seller?
+        return redirect_to root_path, flash: { error: 'Anda tidak memiliki hak akses' }
+      end
+    end
 
     def authenticate_admin
       unless is_admin?
@@ -32,10 +39,6 @@ module Admin
 
       def is_seller?
         current_user.seller?
-      end
-
-      def is_buyer?
-        current_user.buyer?
       end
   end
 end

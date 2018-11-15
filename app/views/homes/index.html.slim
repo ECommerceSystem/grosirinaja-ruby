@@ -1,0 +1,173 @@
+    section.ads.spacer
+        h3.title__text
+            | Promo
+        .container
+            .row
+                .col-12
+                    .ads__slider.owl-carousel
+                        a.color-black href="#{}"
+                            .item.shadow-outset-sm
+                                = image_tag("default-image.png")
+                                .item-details
+                                    p.ads__title
+                                        | Bed Cover &#38; Sprei Set King Size Katun Jepang Emboss
+                                    p.ads__content
+                                        span Rp. 305.000
+                        a href="#{}"
+                            .item.shadow-outset-sm
+                                = image_tag("default-image.png")
+                                .item-details
+                                    p.ads__title
+                                        | Bed Cover &#38; Sprei Set King Size Katun Jepang Emboss
+                                    p.ads__content
+                                        span Rp. 305.000                     
+
+    section.flash-sales.spacer
+            span.flash-sales__timer
+                h3.title__text.d-inline
+                    | Flash Sales
+                .flash-sales__timer__countdown#countdown-timer.d-inline
+                    .flash-sales__timer__countdown__content#flash-sales__timer__countdown__day.d-inline
+                    .flash-sales__timer__countdown__content.d-inline
+                        | :
+                    .flash-sales__timer__countdown__content#flash-sales__timer__countdown__hour.d-inline
+                    .flash-sales__timer__countdown__content.d-inline
+                        | :
+                    .flash-sales__timer__countdown__content#flash-sales__timer__countdown__minute.d-inline
+                    .flash-sales__timer__countdown__content.d-inline
+                        | :
+                    .flash-sales__timer__countdown__content#flash-sales__timer__countdown__second.d-inline
+            .flash-sales__container.p-30
+                .flash-sales__container__owl.owl-carousel.owl-theme
+                    a href="#{}"
+                        .item
+                            = image_tag("default-image.png")
+
+    section.categories.spacer
+            h3.title__text
+                | Shop by Categories
+            .categories__wrapper.p-30
+                .container
+                    .row
+                        .col-3
+                            a href="/products"
+                                = image_tag("default-image.png", :class => "w-100")
+                    .row
+                        .col-3
+                            a href="#{}"
+                                .categories__wrapper__img.categories__wrapper__img--1
+                                    p.uppercase.text-center
+                                        | Bed Sheet by Pattern
+                        .col-3
+                            .categories__wrapper__content
+                                .categories__wrapper__content__title
+                                    p 
+                                        b
+                                            | Bed Sheet by Pattern
+
+                                a href="#{}"
+                                    p
+                                        spaiddenn 
+                                            | Bunga
+                                            span.right-arrow >
+                                a href="#{}"
+                                    p
+                                        span
+                                            | Polkadot
+                                            span.right-arrow >
+                                a href="#{}"
+                                    p
+                                        span
+                                            | Polos
+                                            span.right-arrow >
+                                a href="#{}"
+                                    p
+                                        span
+                                            | Kartun
+                                            span.right-arrow >
+                                a href="#{}"
+                                    p
+                                        span 
+                                            | Lihat Semua
+                                            span.right-arrow >
+                        .col-3
+                          a href="#{}"
+                                .categories__wrapper__img.categories__wrapper__img--2
+                                    p.uppercase.text-center
+                                        | Bed Sheet by Budget
+                        .col-3
+    section.brands.spacer
+        .title
+            .col-6
+                h3.title__text.d-flex.justify-content-start
+                    | Shop by Best Merchants
+            .col-6
+                .d-flex.justify-content-end
+                    = link_to 'See More', goods_path, class: 'btn--sm btn-standard color-white'
+        .b-slide.p-30
+            .container
+                .row
+                    .col-2
+                    .col-4
+                        a href="/products"
+                            = image_tag("default-image.png", :class => "w-100")
+                            .brands__title.shadow-outset-sm
+                                | Romantic
+                    .col-4
+                        a href="/products"
+                            = image_tag("default-image.png", :class => "w-100")
+                            .brands__title.shadow-outset-sm
+                                | Lovina
+                    .col-2
+
+    section.best-selling.spacer
+        .title
+            .col-6
+                h3.title__text.d-flex.justify-content-start
+                    | Shop by Best Seller
+            .col-6
+                .d-flex.justify-content-end
+                    = link_to 'See More', goods_path, class: 'btn--sm btn-standard color-white'
+        .bs-slide.p-30
+            .container
+                .row
+                    .col-4
+                        a href="#{}"    
+                            = image_tag("default-image.png", :class => "w-100")
+                    .col-4
+                        a href="#{}"    
+                            = image_tag("default-image.png", :class => "w-100")
+                    .col-4
+                        a href="#{}"    
+                            = image_tag("default-image.png", :class => "w-100")
+
+    section.top-rated.spacer
+        .title
+            .col-6
+                h3.title__text.d-flex.justify-content-start
+                    | Shop by Top Rated
+            .col-6
+                .d-flex.justify-content-end
+                    = link_to 'See More', goods_path, class: 'btn--sm btn-standard color-white'
+        .tr-slide.p-30
+            .container
+                .row
+                    .col-4
+                        a href="#{}"    
+                            = image_tag("default-image.png", :class => "w-100")
+                    .col-4
+                        a href="#{}"    
+                            = image_tag("default-image.png", :class => "w-100")
+                    .col-4
+                        a href="#{}"    
+                            = image_tag("default-image.png", :class => "w-100")
+
+    section.all-products
+        .container
+            .row
+                .col-12.p-30
+                    p.title__text--non-bold.text-center
+                        | You can find a lot of interesting stuffs. See all of our products here!
+                    .d-flex.justify-content-center
+                      a.btn.btn-standard href="#{}" 
+                        | All Products
