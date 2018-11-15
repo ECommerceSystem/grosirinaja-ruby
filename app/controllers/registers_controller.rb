@@ -15,9 +15,9 @@ class RegistersController < ApplicationController
         user.level = :user
         user.save!
   
-        return redirect_to sign_in_path, flash: { success: 'Silahkan login menggunakan email dan password yang telah didaftarkan' }
+        return redirect_to sign_in_path, flash: { success: 'You can now log in with your newly created account' }
       rescue
-        return redirect_to new_register_path, flash: { error: 'Email, name, password, dan nik tidak boleh dikosongkan' }
+        return redirect_to new_register_path, flash: { error: 'Name, email, password, and level cant be blank' }
       end
     end
   
@@ -28,7 +28,7 @@ class RegistersController < ApplicationController
         if user.present?
           return {
             response: false,
-            message: 'Email sudah terpakai'
+            message: 'Email already booked'
           }
         end
   
@@ -38,7 +38,7 @@ class RegistersController < ApplicationController
     end
   
     def user_params
-        params.require(:user).permit :email, :name, :password, :level
+        params.require(:user).permit :email
     end
 end
   

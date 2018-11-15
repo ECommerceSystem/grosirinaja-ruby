@@ -73,9 +73,9 @@ html
                         li Home
                       a href="#{goods_path}" 
                         li Products
-                      a href="#{}" 
+                      a href="#{merchants_path}" 
                         li Merchant
-                      a href="" 
+                      a href="#{contacts_path}" 
                         li Contact
                       - if signed_in?
                         a href="#{logout_path}" method='delete' rel='nofollow' data-method='delete'
@@ -104,7 +104,7 @@ html
                   = image_tag("logo-main.png")
   
     / = javascript_include_tag "all.js"
-    - if %w(goods homes payments).include? params[:controller]
+    - if %w(goods homes payments contacts).include? params[:controller]
       = javascript_include_tag params[:controller]
-    / - if params[:controller] == "contacts"
-    /   = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJXf9eN7NOY_TvDIA4Tz0G-o5xoqr5VCc&callback=initMap"
+    - if params[:controller] == "contacts"
+      = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJXf9eN7NOY_TvDIA4Tz0G-o5xoqr5VCc&callback=initMap"

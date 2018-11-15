@@ -353,11 +353,11 @@
          background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%) !important;
      }
      @at-root #{&}--primary {
-         background-color: #52b04c !important;
+         background-color: #ff0032 !important;
          color: #fff !important;
          border: none;
          &:hover {
-             background-color: #48a243 !important
+             background-color: #fb2424 !important
          }
      }
      @at-root #{&}--delete {

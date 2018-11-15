@@ -10,11 +10,11 @@ section.user
               .container
                 .row
                   .field
-                    label for="email" Email
-                    = form.text_field :email, type: "email", required: true
-                  .field
                     label for="name" Nama
                     = form.text_field :name, required: true
+                  .field
+                    label for="email" Email
+                    = form.text_field :email, type: "email", required: true
                   .field
                     label for="level" Level
                     = form.select(:level, options_for_select([['Merchant', 'Seller'],['Regular User', 'Buyer']], 1))

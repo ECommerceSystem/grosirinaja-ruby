@@ -1,0 +1,13 @@
+section.product-list
+        .container
+            .row
+              - @merchants.each do |merchant|
+                .col-3
+                  a.color-black href="#{}"
+                    .pl-box.shadow-outset-sm
+                      = image_tag("default-image.png", :class => "w-100")
+                      .pl-box-details
+                        p.tooltip
+                            span.tooltip-text
+                                | #{merchant.name}
+            = paginate @merchants

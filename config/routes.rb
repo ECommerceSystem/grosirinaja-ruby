@@ -13,10 +13,14 @@ Rails.application.routes.draw do
 
   resources :goods, only: %i[index show]
   resources :payments, only: %i[index]
+
+  resources :merchants, only: %i[index]
   
   resources :registers, only: %i[new create]
   
   resource :session, controller: "sessions", only: %i[create]
   get "/login", to: "sessions#new", as: "login"
   get "/logout", to: "sessions#destroy"
+
+  get "/contacts", to: "contacts#index"
 end
