@@ -1,8 +1,8 @@
-class HomesController < ApplicationController
+class PaymentsController < ApplicationController
     def index
-        @goods = Good.page params_page
+      @goods = Good.page params_page
     end
-    
+
     private
         def params_page
             return params[:page]

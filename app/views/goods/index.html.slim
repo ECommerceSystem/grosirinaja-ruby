@@ -1,0 +1,14 @@
+section.product-list
+        .container
+            .row
+              - @goods.each do |good|
+                .col-3
+                  a.color-black href="#{good_path good.id}"
+                    .pl-box.shadow-outset-sm
+                      = image_tag("default-image.png", :class => "w-100")
+                      .pl-box-details
+                        p.tooltip
+                            span.tooltip-text
+                                | #{good.description}
+                        p.color-red #{good.price}
+            = paginate @goods

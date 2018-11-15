@@ -29,7 +29,7 @@ html
     = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
     = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     = javascript_include_tag "https://use.fontawesome.com/releases/v5.5.0/js/all.js"
-    = javascript_pack_tag 'application', defer: true
+    / = javascript_include_tag 'application', defer: true
 
   body class=("#{controller_name} #{action_name}")
     .container
@@ -40,17 +40,17 @@ html
               .header__info
                 .col-1.no-padding
                   .header__info__text
-                    | Pengumuman
+                    | Announcement
                 .col-8
                   .header__info__newsticker
                     .header__info__newsticker__item
-                      | Tanggal 20 Desember 2018 akan diadakan diskon besar-besaran!
+                      | Great sale on Dec 20th 2018!
                     .header__info__newsticker__item
-                      | Produk yang dibeli lebih dari 100 pcs akan mendapat diskon lebih gila lagi
+                      | Greater amount of quantity means bigger discounts
                     .header__info__newsticker__item
-                      | Nikmati segala layanan kami, harap hanya melakukan transaksi bedasarkan panduan yang ada di dalam website ini
+                      | Enjoy all of our services, thank you for supporting us
                     .header__info__newsticker__item
-                      | Hubungi kami di 021-001. Bebas pulsa!
+                      | Call us on 021-001
                 .col-3.no-padding
                   .header__info__phone
                     i.fas.fa-envelope.fa-fw
@@ -71,14 +71,14 @@ html
                     ul.header__primary__menu.d-flex
                       a href="/"
                         li Home
-                      a href="#{}" 
+                      a href="#{goods_path}" 
                         li Products
                       a href="#{}" 
                         li Merchant
                       a href="" 
                         li Contact
                       - if signed_in?
-                        a href="#{sign_out_path}" method='delete' rel='nofollow' data-method='delete'
+                        a href="#{logout_path}" method='delete' rel='nofollow' data-method='delete'
                           li Log Out
                       - else
                         li.header__primary__menu__parent
@@ -102,30 +102,9 @@ html
               .col-6
                 a href="/"
                   = image_tag("logo-main.png")
-              .col-6
-                .footer__title
-                  p Badan PPSDM Kesehatan RI
-                .footer__details
-                  p 
-                    b Alamat 
-                    | Jl. Hang Jebat III Blok F3, Kebayoran Baru, Jakarta Selatan 12120
-                  p Kotak Pos No. 6015/JKS/GN
-                  p
-                    b Telepon 
-                    | 021 724 55 17, 021 727 973 02
-                  p
-                    b Fax 
-                    | 021 726 30 83
-                .footer__wellcode
-                  a href="http://www.wellcode.io"
-                    p
-                      | Powered by 
-                      b Wellcode Global &copy;
   
-    - unless ['sessions'].include? params[:controller]
-      = javascript_include_tag params[:controller]
     / = javascript_include_tag "all.js"
-    / - if %w(contacts homes).include? params[:controller]
-    /   = javascript_include_tag params[:controller]
+    - if %w(goods homes payments).include? params[:controller]
+      = javascript_include_tag params[:controller]
     / - if params[:controller] == "contacts"
     /   = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJXf9eN7NOY_TvDIA4Tz0G-o5xoqr5VCc&callback=initMap"

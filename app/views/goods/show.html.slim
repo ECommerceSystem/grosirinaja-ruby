@@ -1,0 +1,96 @@
+  section.product.spacer
+    .container
+      .row
+        .col-9
+          .container
+            .product__detail.shadow-outset-sm
+              .row
+                .col-5
+                  .p-pictures
+                    .container
+                      .row
+                        .col-12.no-padding
+                          = image_tag("default-image.png", :class => "w-100 p-main-img")
+                      .row
+                        .col-3.no-padding
+                          = image_tag("default-image.png", :class => "w-100 p-slide-img")
+                        .col-3.no-padding
+                          = image_tag("default-image.png", :class => "w-100 p-slide-img")
+                        .col-3.no-padding
+                          = image_tag("default-image.png", :class => "w-100 p-slide-img")
+                        .col-3.no-padding
+                          = image_tag("default-image.png", :class => "w-100 p-slide-img")
+                .col-7
+                  .p-info.p-30
+                    .info-field
+                      h3 #{@good.name}
+                    .info-field
+                      small.uppercase.color-red> Sold:
+                      span 390 pcs to 20 customers
+                    .info-field
+                      small.uppercase.color-red> Description:
+                      span #{@good.description}
+                    .info-field
+                      small.uppercase.color-red> Price:
+                      span #{@good.price}
+
+              .row
+                .col-12
+                  .p-img-wrapper
+                    .container
+                      .row
+                        .col-6
+                          h3.text-title Front Side
+                          .container
+                            .row
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+                        .col-6
+                          h3.text-title Back Side
+                          .container
+                            .row
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+                      .row
+                        .col-6
+                          h3.text-title Inner View
+                          .container
+                            .row
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+                        .col-6
+                          h3.text-title Outter View
+                          .container
+                            .row
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+                              .col-6
+                                = image_tag("default-image.png", :class => "w-100")
+         
+        .col-3
+          .container
+            .row
+              .product__price.shadow-outset-sm#sidebar-price
+                .col-12
+                  form accept-charset="UTF-8" action="" enctype="multipart/form-data" method=""
+                    .field
+                      label for="quantity"
+                        b
+                          | Quantity
+                      input#jumlah name="quantity" type="number" /
+                    .field
+                      label
+                        b
+                          | Total Price
+                        p#product-price Rp. 999.999,00-
+                    .col-12.no-padding
+                      .d-flex.justify-content-start
+                        a.btn.btn-standard href="#{payments_path}"
+                          i.fas.fa-credit-card.fa-fw
+                          | &nbsp;Beli

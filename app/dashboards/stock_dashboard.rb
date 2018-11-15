@@ -8,9 +8,9 @@ class StockDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    good: Field::BelongsTo,
     id: Field::Number,
     amount: Field::Number,
+    good: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -21,18 +21,17 @@ class StockDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :good,
     :id,
     :amount,
-    :created_at,
+    :good,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :good,
     :id,
     :amount,
+    :good,
     :created_at,
     :updated_at,
   ].freeze
@@ -41,8 +40,8 @@ class StockDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :good,
     :amount,
+    :good,
   ].freeze
 
   # Overwrite this method to customize how stocks are displayed

@@ -1,30 +1,23 @@
     section.ads.spacer
-        h3.title__text
+        h2.title__text
             | Promo
         .container
             .row
                 .col-12
                     .ads__slider.owl-carousel
-                        a.color-black href="#{}"
-                            .item.shadow-outset-sm
-                                = image_tag("default-image.png")
-                                .item-details
-                                    p.ads__title
-                                        | Bed Cover &#38; Sprei Set King Size Katun Jepang Emboss
-                                    p.ads__content
-                                        span Rp. 305.000
-                        a href="#{}"
-                            .item.shadow-outset-sm
-                                = image_tag("default-image.png")
-                                .item-details
-                                    p.ads__title
-                                        | Bed Cover &#38; Sprei Set King Size Katun Jepang Emboss
-                                    p.ads__content
-                                        span Rp. 305.000                     
+                        - @goods.each do |good|
+                            a.color-black href="#{good_path good.id}"
+                                .item.shadow-outset-sm
+                                    = image_tag("default-image.png")
+                                    .item-details
+                                        p.ads__title
+                                            | #{good.name}
+                                        p.ads__content
+                                            span Rp. #{good.price}             
 
     section.flash-sales.spacer
             span.flash-sales__timer
-                h3.title__text.d-inline
+                h2.title__text.d-inline
                     | Flash Sales
                 .flash-sales__timer__countdown#countdown-timer.d-inline
                     .flash-sales__timer__countdown__content#flash-sales__timer__countdown__day.d-inline
@@ -39,67 +32,69 @@
                     .flash-sales__timer__countdown__content#flash-sales__timer__countdown__second.d-inline
             .flash-sales__container.p-30
                 .flash-sales__container__owl.owl-carousel.owl-theme
-                    a href="#{}"
-                        .item
-                            = image_tag("default-image.png")
+                    - @goods.each do |good|
+                        a href="#{good_path good.id}"
+                            .item
+                                = image_tag("default-image.png")
 
     section.categories.spacer
-            h3.title__text
+            h2.title__text
                 | Shop by Categories
             .categories__wrapper.p-30
                 .container
                     .row
-                        .col-3
-                            a href="/products"
-                                = image_tag("default-image.png", :class => "w-100")
+                        - @goods.take(4).each do |good|
+                            .col-3
+                                a href="#{good_path good.id}"
+                                    = image_tag("default-image.png", :class => "w-100")
                     .row
                         .col-3
-                            a href="#{}"
+                            a href="#{goods_path}"
                                 .categories__wrapper__img.categories__wrapper__img--1
                                     p.uppercase.text-center
-                                        | Bed Sheet by Pattern
+                                        | Browse Discount Items
                         .col-3
                             .categories__wrapper__content
                                 .categories__wrapper__content__title
-                                    p 
+                                    p.color-black 
                                         b
-                                            | Bed Sheet by Pattern
+                                            | Browse Items
 
-                                a href="#{}"
-                                    p
+                                a href="#{goods_path}"
+                                    p.color-black
                                         spaiddenn 
-                                            | Bunga
+                                            | Most Popular
                                             span.right-arrow >
-                                a href="#{}"
-                                    p
+                                a href="#{goods_path}"
+                                    p.color-black
                                         span
-                                            | Polkadot
+                                            | Most Lucrative
                                             span.right-arrow >
-                                a href="#{}"
-                                    p
+                                a href="#{goods_path}"
+                                    p.color-black
                                         span
-                                            | Polos
+                                            | Cheap
                                             span.right-arrow >
-                                a href="#{}"
-                                    p
+                                a href="#{goods_path}"
+                                    p.color-black
                                         span
-                                            | Kartun
+                                            | Good Deal
                                             span.right-arrow >
-                                a href="#{}"
-                                    p
+                                a href="#{goods_path}"
+                                    p.color-black
                                         span 
-                                            | Lihat Semua
+                                            | See All
                                             span.right-arrow >
                         .col-3
                           a href="#{}"
                                 .categories__wrapper__img.categories__wrapper__img--2
                                     p.uppercase.text-center
-                                        | Bed Sheet by Budget
+                                        | Browse by Budget
                         .col-3
     section.brands.spacer
         .title
             .col-6
-                h3.title__text.d-flex.justify-content-start
+                h2.title__text.d-flex.justify-content-start
                     | Shop by Best Merchants
             .col-6
                 .d-flex.justify-content-end
@@ -109,21 +104,21 @@
                 .row
                     .col-2
                     .col-4
-                        a href="/products"
+                        a.color-black href="#{goods_path}"
                             = image_tag("default-image.png", :class => "w-100")
                             .brands__title.shadow-outset-sm
-                                | Romantic
+                                | Rudy
                     .col-4
-                        a href="/products"
+                        a.color-black href="#{goods_path}"
                             = image_tag("default-image.png", :class => "w-100")
                             .brands__title.shadow-outset-sm
-                                | Lovina
+                                | Jeremy
                     .col-2
 
     section.best-selling.spacer
         .title
             .col-6
-                h3.title__text.d-flex.justify-content-start
+                h2.title__text.d-flex.justify-content-start
                     | Shop by Best Seller
             .col-6
                 .d-flex.justify-content-end
@@ -131,20 +126,15 @@
         .bs-slide.p-30
             .container
                 .row
-                    .col-4
-                        a href="#{}"    
-                            = image_tag("default-image.png", :class => "w-100")
-                    .col-4
-                        a href="#{}"    
-                            = image_tag("default-image.png", :class => "w-100")
-                    .col-4
-                        a href="#{}"    
-                            = image_tag("default-image.png", :class => "w-100")
+                    - @goods.take(3).each do |good|
+                        .col-4
+                            a href="#{good_path good.id}"    
+                                = image_tag("default-image.png", :class => "w-100")
 
     section.top-rated.spacer
         .title
             .col-6
-                h3.title__text.d-flex.justify-content-start
+                h2.title__text.d-flex.justify-content-start
                     | Shop by Top Rated
             .col-6
                 .d-flex.justify-content-end
@@ -152,15 +142,10 @@
         .tr-slide.p-30
             .container
                 .row
-                    .col-4
-                        a href="#{}"    
-                            = image_tag("default-image.png", :class => "w-100")
-                    .col-4
-                        a href="#{}"    
-                            = image_tag("default-image.png", :class => "w-100")
-                    .col-4
-                        a href="#{}"    
-                            = image_tag("default-image.png", :class => "w-100")
+                    - @goods.take(3).each do |good|
+                        .col-4
+                            a href="#{good_path good.id}"    
+                                = image_tag("default-image.png", :class => "w-100")
 
     section.all-products
         .container
@@ -169,5 +154,5 @@
                     p.title__text--non-bold.text-center
                         | You can find a lot of interesting stuffs. See all of our products here!
                     .d-flex.justify-content-center
-                      a.btn.btn-standard href="#{}" 
+                      a.btn.btn-standard href="#{goods_path}" 
                         | All Products

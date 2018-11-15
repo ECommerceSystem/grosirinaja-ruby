@@ -8,11 +8,11 @@ class BuyerGoodDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    good: Field::BelongsTo,
     id: Field::Number,
     total_price: Field::Number,
     quantity: Field::Number,
-    user_id: Field::Number,
+    good: Field::BelongsTo,
+    user: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,20 +23,21 @@ class BuyerGoodDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :good,
     :id,
-    :total_price,
     :quantity,
+    :total_price,
+    :good,
+    :user,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :good,
     :id,
-    :total_price,
     :quantity,
-    :user_id,
+    :total_price,
+    :good,
+    :user,
     :created_at,
     :updated_at,
   ].freeze
@@ -45,10 +46,10 @@ class BuyerGoodDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :good,
-    :total_price,
     :quantity,
-    :user_id,
+    :total_price,
+    :good,
+    :user,
   ].freeze
 
   # Overwrite this method to customize how buyer goods are displayed

@@ -846,7 +846,7 @@
  }
  
  .footer {
-     background-color: #52b04c;
+     background-color: #1d1d1d;
      padding: 1em 0;
      color: #fff;
      display: block;
@@ -1690,6 +1690,41 @@
     }
 }
 
+.product {
+    padding: 2em;
+    &__detail,
+    &__price {
+        background-color: #fff;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+    }
+    &__price {
+        padding: 1em 0;
+    }
+    & a {
+        display: block;
+        margin: 0 auto;
+        width: 60%;
+        text-align: center;
+    }
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    +.content {
+        padding-top: 59.66px;
+    }
+    &--side {
+        position: fixed;
+        top: 59.66px;
+        width: 20%;
+        z-index: 1000;
+    }
+}
 
 .flash-sales {
     .flash-sales__timer {
@@ -1727,5 +1762,183 @@
     }
     .flash-sales__container {
         margin: 1em 0;
+    }
+}
+
+.product-list {
+    margin: 1em auto;
+    .pl-box {
+        background-color: #fff;
+        margin: .75em auto;
+        & img {
+            object-fit: cover;
+        }
+        .pl-box-details {
+            padding: 1em .5em;
+        }
+        &:hover {
+            background-color: #e7e7e7;
+            .pl-img {
+                opacity: .8;
+            }
+        }
+    }
+}
+
+.tooltip {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .tooltip-text {
+        white-space: nowrap;
+    }
+}
+
+.payment {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    padding: 1em 3em;
+    &__accordion {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        margin: 3em 0;
+    }
+    & a {
+        margin: 2em;
+    }
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    &__panel {
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        display: block;
+        transition: max-height 0.2s ease-out;
+        &__box {
+            border: 1px solid #CBCBCB;
+            border-radius: 5px;
+            & img {
+                object-fit: contain;
+                width: 65px;
+                height: 50px;
+            }
+        }
+    }
+}
+
+.ac, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.ac:after {
+    content: "\2212";
+}
+
+.progress {
+	width: 50%;
+    margin: 0 auto 2em auto;
+    text-align: center;
+	.step {
+		position: relative;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		background: #eee;
+		border-radius: 50%;
+		font-size: 16px;
+		line-height: 30px;
+		text-align: center;
+		color: #CBCBCB;
+		margin-left: -5px;
+		transition: .2s all ease-in-out;
+		&.active { background: #FD003D; color: #fff; }
+		&.one:after, &.two:after, &.three:after {
+			content: "Payment Method";
+			display: block;
+			position: absolute;
+			bottom: -35px;
+			left: -20px;
+			font-size: .65em;
+			line-height: 15px;
+			color: #CBCBCB;
+			width: 70px;
+		}
+		&.two:after { content: "Confirmation"; }
+		&.one.active:after, &.two.active:after, &.three.active:after {
+			color: #000;
+		}
+	}
+	.bar {
+		display: inline-block;
+		width: 160px;
+		height: 10px;
+		background: #eee;
+		margin: 0 -2px;
+		transition: .2s all ease-in-out;
+		&.active { background: #FD003D; color: #fff; }
+	}
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    &__content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 5px;
+        &__box {
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            border-bottom: 1px solid #d0d0d0;
+            padding: 1em 0;
+            margin: .25em 0;
+        }
+    }
+    & .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    & .close:hover,
+    & .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
     }
 }

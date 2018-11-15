@@ -1,0 +1,84 @@
+  section.product.spacer
+    .container
+      .row
+        .col-2
+        .col-8
+          .container
+            .product__detail.shadow-outset-sm
+              .row
+                .col-12
+                  .payment
+                    .progress
+                        .step.one.active 1
+                        .bar.two
+                        .step.two 2
+                    h3 Choose Your Payment Method
+                    .payment__accordion
+                        button.accordion Transfer via Bank
+                        .accordion__panel
+                            .accordion__panel__box
+                                .d-flex.centered-items
+                                    .col-6
+                                        .d-flex.justify-content-start
+                                            input type="radio" name="bank" &nbsp; Bank BCA
+                                    .col-6
+                                        .d-flex.justify-content-end
+                                            = image_tag("icon-bca.png", :class => "w-100")
+                            .accordion__panel__box
+                                    .d-flex.centered-items
+                                        .col-6
+                                            .d-flex.justify-content-start
+                                                input type="radio" name="bank" &nbsp; Bank Mandiri
+                                        .col-6
+                                            .d-flex.justify-content-end
+                                                = image_tag("icon-mandiri.png", :class => "w-100")
+                            .accordion__panel__box
+                                    .d-flex.centered-items
+                                        .col-6
+                                            .d-flex.justify-content-start
+                                                input type="radio" name="bank" &nbsp; Bank BNI
+                                        .col-6
+                                            .d-flex.justify-content-end
+                                                = image_tag("icon-bni.png", :class => "w-100")
+                        button.accordion Transfer via Virtual Account
+                        .accordion__panel
+                            .accordion__panel__box
+                                .d-flex.centered-items
+                                    .col-6
+                                        .d-flex.justify-content-start
+                                            input type="radio" name="va" &nbsp; BCA Virtual Account
+                                    .col-6
+                                        .d-flex.justify-content-end
+                                            = image_tag("icon-bca.png", :class => "w-100")
+                            .accordion__panel__box
+                                    .d-flex.centered-items
+                                        .col-6
+                                            .d-flex.justify-content-start
+                                                input type="radio" name="va" &nbsp; Mandiri Virtual Account
+                                        .col-6
+                                            .d-flex.justify-content-end
+                                                = image_tag("icon-mandiri.png", :class => "w-100")
+                            .accordion__panel__box
+                                    .d-flex.centered-items
+                                        .col-6
+                                            .d-flex.justify-content-start
+                                                input type="radio" name="va" &nbsp; BNI Virtual Account
+                                        .col-6
+                                            .d-flex.justify-content-end
+                                                = image_tag("icon-bni.png", :class => "w-100")
+                    small Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                    .d-flex.centered-items
+                        .col-12
+                            .d-flex.justify-content-center
+                                button.btn.btn-standard#confirmationModal type="" Confirm
+        .col-2
+        .col-12
+            .modal#modal
+                .modal__content
+                    h2.color-black.text-center Transaction Success!
+                    span.close &times;
+                    .modal__content__box
+                        h3 Lorem Ipsum
+                        p Description: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        p Quantity: 30
+                        p Total Price: Rp.1.175.000

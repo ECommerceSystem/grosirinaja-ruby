@@ -1,0 +1,27 @@
+section.user
+  .desktop
+    .row
+      .col-3
+      .col-6
+        .card.shadow-outset-sm.p-30
+          p.card__title.text-center 
+            | Silahkan masukan data diri anda
+            = form_for :user, url: registers_path do |form|
+              .container
+                .row
+                  .field
+                    label for="email" Email
+                    = form.text_field :email, type: "email", required: true
+                  .field
+                    label for="name" Nama
+                    = form.text_field :name, required: true
+                  .field
+                    label for="level" Level
+                    = form.select(:level, options_for_select([['Merchant', 'Seller'],['Regular User', 'Buyer']], 1))
+                  .field
+                    label for="password" Password
+                    = form.text_field :password, type: "password", required: true
+                  .col-12
+                    .d-flex.justify-content-center
+                      = form.submit "Daftar", class: "btn btn--sm btn-standard--primary"
+      .col-3

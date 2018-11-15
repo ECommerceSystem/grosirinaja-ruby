@@ -24,14 +24,6 @@ class RegistersController < ApplicationController
     private
   
       def check_validity
-        user = User.find_by nik: user_params[:nik]
-        if user.present?
-          return {
-            response: false,
-            message: 'NIK sudah terpakai'
-          }
-        end
-  
         user = User.find_by email: user_params[:email]
         if user.present?
           return {
@@ -46,7 +38,7 @@ class RegistersController < ApplicationController
     end
   
     def user_params
-        params.require(:user).permit :email, :name, :password, :nik
+        params.require(:user).permit :email, :name, :password, :level
     end
 end
   
